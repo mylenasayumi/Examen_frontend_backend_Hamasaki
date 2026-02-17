@@ -1,6 +1,6 @@
 import './App.css'
 import GestionnaireToDoList from './GestionnaireToDoList'
-import TestComponent from './TestComponent'
+// import TestComponent from './TestComponent'
 
 function App() {
 
@@ -8,7 +8,8 @@ function App() {
         <div className="App">
             <header className="App-header"></header>
             <GestionnaireToDoList />
-            <TestComponent />
+            {/* Test monitoring d'erreurs pour le frontend */}
+            {/* <TestComponent /> */}
         </div>
     )
 }
