@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -70,3 +71,7 @@ def task_detail(request, pk):
     elif request.method == 'DELETE':
         task.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+def health_check(request):
+    """Une vue simple qui renvoie un statut de succès."""
+    return JsonResponse({"status": "ok", "message": "API is healthy"})
