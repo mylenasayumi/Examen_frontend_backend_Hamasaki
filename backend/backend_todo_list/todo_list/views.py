@@ -4,6 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Category, Task
 from .serializers import CategorySerializer, TaskSerializer
+import sentry_sdk
+from django.http import HttpResponse
 
 @api_view(['GET', 'POST'])
 def category_list(request):
@@ -81,3 +83,7 @@ def trigger_error(request):
     # Cette ligne va inévitablement provoquer une erreur
     division_by_zero = 1 / 0
     return JsonResponse({"this": "will never be returned"})
+
+def sentry_test(request):
+    sentry_sdk.capture_message("Teste Render Sentry!")
+    return HttpResponse("Mensagem enviada para Sentry")
